@@ -4,10 +4,11 @@ def bad_two_sum?(arr, target)
     pairs = arr.permutation(2).to_a
     pairs.any?{|pair| pair.sum == target}
 end
+# O(n!)
+
 # arr = [0, 1, 5, 7]
 # p bad_two_sum?(arr, 6) # => should be true
 # p bad_two_sum?(arr, 10) # => should be false
-# O(n!)
 
 def okay_two_sum?(arr, target)
     sorted = arr.sort
@@ -31,6 +32,8 @@ def okay_two_sum?(arr, target)
     end
    
 end
+# O(nlogn)
+
 
 # arr = [0, 1, 5, 7]
 # p okay_two_sum?(arr, 6) # => should be true
@@ -50,6 +53,7 @@ def two_sum?(arr, target)
     end
     return false
 end
+# O(n)
 
 arr = [0, 1, 5, 7]
 p two_sum?(arr, 6) # => should be true

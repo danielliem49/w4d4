@@ -74,5 +74,5 @@ end
 
 
  list = [-5, -1, -3]
- list2 = [5, 3, -7]
+ list2 = [-5]
  p lcs_phase2(list2)

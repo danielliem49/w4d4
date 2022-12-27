@@ -1,17 +1,17 @@
 def first_anagram?(str1, str2)
-    str1_ana_chars = str1.chars.permutation(str2.length).to_a
-    str1_anagrams = str1_ana_chars.map {|word| word.join}
+    str1_chars_permutations = str1.split("").permutation(str2.length).to_a
+    str1_anagrams = str1_chars_permutations.map {|word| word.join}
     str1_anagrams.include?(str2)
 end
 # O(n!)
 
-# first_anagram?("gizmo", "sally")    #=> false
-# first_anagram?("elvis", "lives")    #=> true
+# p first_anagram?("gizmo", "sally")    #=> false
+# p first_anagram?("elvis", "lives")    #=> true
 
 def second_anagram?(str1, str2) #elvis , lives
     str2_arr = str2.split("") 
-    str1.each_char.with_index do |ele, i|
-        j = str2_arr.index(str1[i])
+    str1.each_char do |ele|
+        j = str2_arr.index(ele)
         if j == nil
             return false
         end
@@ -93,6 +93,7 @@ def fourth_anagram?(str1, str2)
 
     count1 == count2
 end
+# O(n)
 
-p fourth_anagram?("gizmo", "sally")    #=> false
-p fourth_anagram?("elvis", "lives")    #=> true
+# p fourth_anagram?("gizmo", "sally")    #=> false
+# p fourth_anagram?("elvis", "lives")    #=> true

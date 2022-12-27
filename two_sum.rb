@@ -4,7 +4,9 @@ def bad_two_sum?(arr, target)
     pairs = arr.permutation(2).to_a
     pairs.any?{|pair| pair.sum == target}
 end
-# O(n!)
+#O(n^2) quadratic time
+#O(1) constant space
+
 
 # arr = [0, 1, 5, 7]
 # p bad_two_sum?(arr, 6) # => should be true
@@ -32,7 +34,8 @@ def okay_two_sum?(arr, target)
     end
    
 end
-# O(nlogn)
+#O(nlogn) linearithmic time
+#O(n) linear space
 
 
 # arr = [0, 1, 5, 7]
@@ -40,22 +43,18 @@ end
 # p okay_two_sum?(arr, 10) # => should be false
 
 def two_sum?(arr, target)
-    hash = Hash.new(0)
-    arr.each_with_index do |ele, i|
-        hash[i] = ele
+    complements = {}
+    arr.each do |ele|
+        debugger
+        complements[ele] = true
+        return true if complements[target - ele]
     end
-    i = 0
-    while i < arr.length - 1
-            if  target == hash[i] + hash[i + 1]
-                return true
-            end
-        i += 1
-    end
-    return false
+    false
 end
-# O(n)
+#O(n) linear time
+#O(n) linear space
 
-arr = [0, 1, 5, 7]
+arr = [0, 1, 7, 5]
 p two_sum?(arr, 6) # => should be true
 p two_sum?(arr, 10) # => should be false
 

@@ -1,7 +1,7 @@
 
 require 'byebug'
 
-def my_min_phase1(arr)
+def my_min_phase1(arr) 
     min = arr[0]
     arr.each_with_index do |ele1, i|
         arr[(i + 1)..-1].each do |ele2|
@@ -12,6 +12,7 @@ def my_min_phase1(arr)
     end
     min
 end
+# O(n^2)
 
 def my_min_phase2(arr)
     min = arr[0]
@@ -22,6 +23,9 @@ def my_min_phase2(arr)
     end
     min
 end
+# O(n)
+
+
 # list = [ -1, 3, 5, 4, -5, 10, 1, 90 ]
 #  p my_min_phase1(list)  # =>  -5
 
@@ -51,6 +55,7 @@ end
     end
     max_sum
  end
+#  O(n^2)
  
 
 
@@ -70,6 +75,7 @@ end
     end
     largest_sum
  end
+#  O(n)
 
 
 
